@@ -1,0 +1,12 @@
+# Dependencies
+node_modules
+
+# Coverage
+coverage
+
+# Logs
+*-error.log
+
+# Build
+.rpt2_cache
+gatsby-node.js

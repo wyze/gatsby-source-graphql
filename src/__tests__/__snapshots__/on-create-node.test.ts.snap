@@ -1,0 +1,20 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`onCreateNode allows passing custom headers 1`] = `
+Object {
+  "body": "{\\"query\\":\\"query { id }\\",\\"variables\\":{}}",
+  "headers": Object {
+    "authorization": "Bearer token",
+    "content-type": "application/json",
+  },
+  "method": "post",
+}
+`;
+
+exports[`onCreateNode throws an error when null \`headers\` 1`] = `"Must supply \`headers\` option that is an object."`;
+
+exports[`onCreateNode throws an error when null \`variables\` 1`] = `"Must supply \`variables\` option that is an object."`;
+
+exports[`onCreateNode throws an error with bad api response 1`] = `"[Bad Request]: Post is malformed."`;
+
+exports[`onCreateNode throws an error with missing or empty \`url\` 1`] = `"Must supply \`url\` option to point to your GraphQL API."`;
