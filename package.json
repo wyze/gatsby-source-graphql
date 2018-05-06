@@ -1,6 +1,6 @@
 {
   "name": "gatsby-source-graphql",
-  "version": "0.0.0",
+  "version": "1.0.0",
   "description": "A Gatsby source plugin for pulling in data from GraphQL APIs.",
   "license": "MIT",
   "repository": "wyze/gatsby-source-graphql",
