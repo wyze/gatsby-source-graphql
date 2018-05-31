@@ -27,6 +27,11 @@ $ npm install --save-dev gatsby-source-graphql
 ```js
 // gatsby-config.js
 
+// Optionally pull in environment variables
+require('dotenv').config({
+  path: `.env.${process.env.NODE_ENV}`,
+});
+
 module.exports = {
   // ...
   plugins: [
@@ -47,6 +52,31 @@ module.exports = {
       },
     },
   ]
+}
+```
+
+```graphql
+# src/queries/github.graphql
+{
+  viewer {
+    name
+    url
+  }
+}
+```
+
+### How to query
+
+Given the above example with a GraphQL file named `github.graphql`, you would query Gatsby like so:
+
+```graphql
+query GitHubViewerQuery {
+  githubGraphQl {
+    viewer {
+      name
+      url
+    }
+  }
 }
 ```
 
