@@ -27,6 +27,7 @@ $ npm install --save-dev gatsby-source-graphql
 ```js
 // gatsby-config.js
 
+// Optionally pull in environment variables
 require('dotenv').config({
   path: `.env.${process.env.NODE_ENV}`,
 });
@@ -54,8 +55,6 @@ module.exports = {
 }
 ```
 
-You need to create query files (*.graphql) for example
-
 ```graphql
 # src/queries/github.graphql
 {
@@ -66,11 +65,12 @@ You need to create query files (*.graphql) for example
 }
 ```
 
-## How to query
-You'd be able to use your query at Gatsby GraphQL `*filename*GraphQl` field like:
+### How to query
+
+Given the above example with a GraphQL file named `github.graphql`, you would query Gatsby like so:
 
 ```graphql
-{
+query GitHubViewerQuery {
   githubGraphQl {
     viewer {
       name
@@ -79,7 +79,6 @@ You'd be able to use your query at Gatsby GraphQL `*filename*GraphQl` field like
   }
 }
 ```
-
 
 ## Change Log
 
