@@ -1,5 +1,16 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`onCreateNode allows Promise based options 1`] = `
+Object {
+  "body": "{\\"query\\":\\"query { id }\\",\\"variables\\":{}}",
+  "headers": Object {
+    "authorization": "Bearer token",
+    "content-type": "application/json",
+  },
+  "method": "post",
+}
+`;
+
 exports[`onCreateNode allows passing custom headers 1`] = `
 Object {
   "body": "{\\"query\\":\\"query { id }\\",\\"variables\\":{}}",
