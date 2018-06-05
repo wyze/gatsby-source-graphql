@@ -71,6 +71,20 @@ describe('onCreateNode', () => {
     })
   })
 
+  it('allows Promise based options', async () => {
+    mockFetch()
+
+    const headers = {
+      authorization: 'Bearer token',
+    }
+    const loadNodeContent = jest.fn(() => 'query { id }')
+    const gatsby = createGatsby({ loadNodeContent })
+    const options = Promise.resolve(createOptions({ headers }))
+    const actual = await onCreateNode(gatsby, options)
+
+    expect(fetch.mock.calls[0][1]).toMatchSnapshot()
+  })
+
   it('allows passing custom headers', async () => {
     mockFetch()
 
