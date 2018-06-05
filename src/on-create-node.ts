@@ -8,7 +8,7 @@ const startCase = upperCaseBy(/^(\w)/)
 
 const onCreateNode = async (
   { boundActionCreators: { createNode, createParentChildLink }, loadNodeContent, node },
-  { headers = {}, url, variables = {} }: Options
+  config: Options | Promise<Options>
 ) => {
   if ( node.extension !== 'graphql' ) {
     return
@@ -16,6 +16,10 @@ const onCreateNode = async (
 
   const query = await loadNodeContent(node)
   const queries = [ query ]
+
+  // Resolve configurations.
+  config = 'then' in config ? await config : config;
+  const { headers = {}, url, variables = {} } = config;
 
   validate({ headers, queries, url, variables })
 
