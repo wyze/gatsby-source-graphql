@@ -18,8 +18,7 @@ const onCreateNode = async (
   const queries = [ query ]
 
   // Resolve configurations.
-  config = 'then' in config ? await config : config;
-  const { headers = {}, url, variables = {} } = config;
+  const { headers = {}, url, variables = {} } = await config;
 
   validate({ headers, queries, url, variables })
 
