@@ -15,6 +15,7 @@
     "clean": "rimraf .rpt2_cache gatsby-node.js",
     "dev": "microbundle watch --sourcemap false --format cjs",
     "prebuild": "yarn clean",
+    "preversion": "yarn build",
     "test": "jest",
     "version": "write-changelog"
   },
