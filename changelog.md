@@ -1,5 +1,9 @@
 ## Change Log
 
+### [v1.1.1](https://github.com/wyze/gatsby-source-graphql/releases/tag/v1.1.1) (2018-06-06)
+
+* [[`3403024845`](https://github.com/wyze/gatsby-source-graphql/commit/3403024845)] - Add preversion script to build before release (Neil Kistner)
+
 ### [v1.1.0](https://github.com/wyze/gatsby-source-graphql/releases/tag/v1.1.0) (2018-06-05)
 
 * [[`67d99754ad`](https://github.com/wyze/gatsby-source-graphql/commit/67d99754ad)] - Allow a promise for asynchronously loading options (#4) (Judah Anthony)
