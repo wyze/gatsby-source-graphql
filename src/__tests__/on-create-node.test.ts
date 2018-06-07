@@ -71,6 +71,28 @@ describe('onCreateNode', () => {
     })
   })
 
+  it('allow the use to a mapper function', async () => {
+    mockFetch()
+
+    const createNode = jest.fn()
+    const loadNodeContent = jest.fn(() => 'query { id }')
+    const gatsby = createGatsby({ createNode, loadNodeContent })
+    const options = { ...createOptions(), map: data => ({ ...data, type: 'CustomType' }) }
+    const actual = await onCreateNode(gatsby, options)
+    const contentDigest = 'b035be5e1e4d06e6faaf0fc2d9f2f77f'
+
+    expect(createNode.mock.calls[0][0]).toEqual({
+      type: 'CustomType',
+      id: `__graphql__${contentDigest}`,
+      children: [],
+      internal: {
+        content: JSON.stringify({ id: 1, type: 'CustomType' }),
+        contentDigest,
+        type: 'CustomType',
+      },
+    })
+  })
+
   it('allows Promise based options', async () => {
     mockFetch()
 
