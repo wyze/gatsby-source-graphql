@@ -22,6 +22,8 @@ Object {
 }
 `;
 
+exports[`onCreateNode throws an error when non-function \`map\` 1`] = `"[Bad Request]: Post is malformed."`;
+
 exports[`onCreateNode throws an error when null \`headers\` 1`] = `"Must supply \`headers\` option that is an object."`;
 
 exports[`onCreateNode throws an error when null \`variables\` 1`] = `"Must supply \`variables\` option that is an object."`;

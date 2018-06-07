@@ -155,6 +155,14 @@ describe('onCreateNode', () => {
     await expect(actual).rejects.toThrowErrorMatchingSnapshot()
   })
 
+  it('throws an error when non-function `map`', async () => {
+    const gatsby = createGatsby()
+    const options = { ...createOptions(), map: 'non-function' }
+    const actual = onCreateNode(gatsby, options)
+
+    await expect(actual).rejects.toThrowErrorMatchingSnapshot()
+  })
+
   it('does nothing when node.extensions !== `graphql`', async () => {
     const gatsby = createGatsby({ node: { extension: '' } })
     const options = createOptions()
