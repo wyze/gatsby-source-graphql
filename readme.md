@@ -84,9 +84,9 @@ query GitHubViewerQuery {
 
 > [Full Change Log](changelog.md)
 
-### [v1.0.0](https://github.com/wyze/gatsby-source-graphql/releases/tag/v1.0.0) (2018-05-06)
+### [v1.1.1](https://github.com/wyze/gatsby-source-graphql/releases/tag/v1.1.1) (2018-06-06)
 
-* [[`bc71c4baf4`](https://github.com/wyze/gatsby-source-graphql/commit/bc71c4baf4)] - Initial commit (Neil Kistner)
+* [[`3403024845`](https://github.com/wyze/gatsby-source-graphql/commit/3403024845)] - Add preversion script to build before release (Neil Kistner)
 
 ## License
 
