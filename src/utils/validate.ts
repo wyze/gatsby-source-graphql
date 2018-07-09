@@ -7,7 +7,7 @@ type Options = {
   variables: {
     [ variable: string ]: any,
   },
-  map?: (data: any) => any | any[],
+  transform?: (data: any) => any | any[],
 }
 
 const isObject = <T>( value: T ) =>
@@ -15,7 +15,7 @@ const isObject = <T>( value: T ) =>
     && Array.isArray(value) === false
     && value !== null
 
-const validate = ({ headers, queries, url, variables, map }: Options) => {
+const validate = ({ headers, queries, url, variables, transform }: Options) => {
   if ( !(Array.isArray(queries) && queries.length > 0) ) {
     throw new Error('Must supply `queries` option with atleast one query.')
   }
@@ -32,8 +32,8 @@ const validate = ({ headers, queries, url, variables, map }: Options) => {
     throw new Error('Must supply `variables` option that is an object.')
   }
 
-  if ( !(typeof map === 'undefined' || typeof map === 'function') ) {
-    throw new Error('Can supply `map` option that is a function.')
+  if ( !(typeof transform === 'undefined' || typeof transform === 'function') ) {
+    throw new Error('Can supply `transform` option that is a function.')
   }
 }
 

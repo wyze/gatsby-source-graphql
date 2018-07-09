@@ -18,7 +18,7 @@ const onCreateNode = async (
   const queries = [ query ]
 
   // Resolve configurations.
-  const { headers = {}, url, variables = {}, map } = await config
+  const { headers = {}, url, variables = {}, transform } = await config
 
   validate({ headers, queries, url, variables })
 
@@ -38,8 +38,8 @@ const onCreateNode = async (
   }
 
   let nodes = [ result.data ]
-  if (map) {
-    nodes = map(result.data)
+  if (transform) {
+    nodes = transform(result.data)
     if (!Array.isArray(nodes)) {
       nodes = [ nodes ]
     }

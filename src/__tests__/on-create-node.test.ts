@@ -71,13 +71,13 @@ describe('onCreateNode', () => {
     })
   })
 
-  it('allow the use to a mapper function', async () => {
+  it('allow the use to a transform function', async () => {
     mockFetch()
 
     const createNode = jest.fn()
     const loadNodeContent = jest.fn(() => 'query { id }')
     const gatsby = createGatsby({ createNode, loadNodeContent })
-    const options = { ...createOptions(), map: data => ({ ...data, type: 'CustomType' }) }
+    const options = { ...createOptions(), transform: data => ({ ...data, type: 'CustomType' }) }
     const actual = await onCreateNode(gatsby, options)
     const contentDigest = 'b035be5e1e4d06e6faaf0fc2d9f2f77f'
 
@@ -155,9 +155,9 @@ describe('onCreateNode', () => {
     await expect(actual).rejects.toThrowErrorMatchingSnapshot()
   })
 
-  it('throws an error when non-function `map`', async () => {
+  it('throws an error when non-function `transform`', async () => {
     const gatsby = createGatsby()
-    const options = { ...createOptions(), map: 'non-function' }
+    const options = { ...createOptions(), transform: 'non-function' }
     const actual = onCreateNode(gatsby, options)
 
     await expect(actual).rejects.toThrowErrorMatchingSnapshot()
