@@ -84,9 +84,10 @@ query GitHubViewerQuery {
 
 > [Full Change Log](changelog.md)
 
-### [v1.1.1](https://github.com/wyze/gatsby-source-graphql/releases/tag/v1.1.1) (2018-06-06)
+### [v1.2.0](https://github.com/wyze/gatsby-source-graphql/releases/tag/v1.2.0) (2018-07-27)
 
-* [[`3403024845`](https://github.com/wyze/gatsby-source-graphql/commit/3403024845)] - Add preversion script to build before release (Neil Kistner)
+* [[`ac57b7ab69`](https://github.com/wyze/gatsby-source-graphql/commit/ac57b7ab69)] - Rename package under my named scope (Neil Kistner)
+* [[`befa28c85f`](https://github.com/wyze/gatsby-source-graphql/commit/befa28c85f)] - Allow the use of a mapper function between results and nodes (#6) (Judah Anthony)
 
 ## License
 
