@@ -1,5 +1,5 @@
 {
-  "name": "gatsby-source-graphql",
+  "name": "@wyze/gatsby-source-graphql",
   "version": "1.1.1",
   "description": "A Gatsby source plugin for pulling in data from GraphQL APIs.",
   "license": "MIT",
@@ -28,6 +28,9 @@
     "gatsby-source-plugin",
     "graphql"
   ],
+  "publishConfig": {
+    "access": "public"
+  },
   "dependencies": {
     "node-fetch": "^2.1.2",
     "tslib": "^1.9.0"

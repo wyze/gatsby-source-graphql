@@ -1,4 +1,4 @@
-# gatsby-source-graphql
+# @wyze/gatsby-source-graphql
 
 [![Build Status][travis-image]][travis-url]
 [![npm][npm-image]][npm-url]
@@ -11,13 +11,13 @@
 ### Yarn
 
 ```
-$ yarn add --dev gatsby-source-graphql
+$ yarn add @wyze/gatsby-source-graphql
 ```
 
 ### npm
 
 ```
-$ npm install --save-dev gatsby-source-graphql
+$ npm install --save @wyze/gatsby-source-graphql
 ```
 
 ## Usage
@@ -43,7 +43,7 @@ module.exports = {
       },
     },
     {
-      resolve: 'gatsby-source-graphql',
+      resolve: '@wyze/gatsby-source-graphql',
       options: {
         headers: {
           authorization: `Bearer ${process.env.GITHUB_TOKEN}`,
@@ -95,8 +95,8 @@ MIT © [Neil Kistner](//neilkistner.com)
 [travis-image]: https://img.shields.io/travis/wyze/gatsby-source-graphql.svg?style=flat-square
 [travis-url]: https://travis-ci.org/wyze/gatsby-source-graphql
 
-[npm-image]: https://img.shields.io/npm/v/gatsby-source-graphql.svg?style=flat-square
-[npm-url]: https://npmjs.com/package/gatsby-source-graphql
+[npm-image]: https://img.shields.io/npm/v/@wyze/gatsby-source-graphql.svg?style=flat-square
+[npm-url]: https://npmjs.com/package/@wyze/gatsby-source-graphql
 
 [codecov-image]: https://img.shields.io/codecov/c/github/wyze/gatsby-source-graphql.svg?style=flat-square
 [codecov-url]: https://codecov.io/github/wyze/gatsby-source-graphql
