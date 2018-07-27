@@ -71,6 +71,28 @@ describe('onCreateNode', () => {
     })
   })
 
+  it('allow the use to a transform function', async () => {
+    mockFetch()
+
+    const createNode = jest.fn()
+    const loadNodeContent = jest.fn(() => 'query { id }')
+    const gatsby = createGatsby({ createNode, loadNodeContent })
+    const options = { ...createOptions(), transform: data => ({ ...data, type: 'CustomType' }) }
+    const actual = await onCreateNode(gatsby, options)
+    const contentDigest = 'b035be5e1e4d06e6faaf0fc2d9f2f77f'
+
+    expect(createNode.mock.calls[0][0]).toEqual({
+      type: 'CustomType',
+      id: `__graphql__${contentDigest}`,
+      children: [],
+      internal: {
+        content: JSON.stringify({ id: 1, type: 'CustomType' }),
+        contentDigest,
+        type: 'CustomType',
+      },
+    })
+  })
+
   it('allows Promise based options', async () => {
     mockFetch()
 
@@ -128,6 +150,14 @@ describe('onCreateNode', () => {
   it('throws an error when null `variables`', async () => {
     const gatsby = createGatsby()
     const options = createOptions({ variables: null })
+    const actual = onCreateNode(gatsby, options)
+
+    await expect(actual).rejects.toThrowErrorMatchingSnapshot()
+  })
+
+  it('throws an error when non-function `transform`', async () => {
+    const gatsby = createGatsby()
+    const options = { ...createOptions(), transform: 'non-function' }
     const actual = onCreateNode(gatsby, options)
 
     await expect(actual).rejects.toThrowErrorMatchingSnapshot()

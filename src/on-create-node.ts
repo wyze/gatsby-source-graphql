@@ -18,7 +18,7 @@ const onCreateNode = async (
   const queries = [ query ]
 
   // Resolve configurations.
-  const { headers = {}, url, variables = {} } = await config;
+  const { headers = {}, url, variables = {}, transform } = await config
 
   validate({ headers, queries, url, variables })
 
@@ -37,23 +37,32 @@ const onCreateNode = async (
     throw new Error(`[${response.statusText}]: ${result.message}`)
   }
 
-  const content = JSON.stringify(result.data)
-  const contentDigest = createContentDigest(content)
-  const type = startCase(camelCase(`${node.name}GraphQL`))
-  const child = {
-    ...result.data,
-    id: `__graphql__${contentDigest}`,
-    children: [],
-    parent: node.id,
-    internal: {
-      content,
-      contentDigest,
-      type,
-    },
+  let nodes = [ result.data ]
+  if (transform) {
+    nodes = transform(result.data)
+    if (!Array.isArray(nodes)) {
+      nodes = [ nodes ]
+    }
   }
 
-  createNode(child)
-  createParentChildLink({ parent: node, child })
+  nodes.forEach(newNode => {
+    const content = JSON.stringify(newNode)
+    const contentDigest = createContentDigest(content)
+    const child = {
+      ...newNode,
+      id: `__graphql__${contentDigest}`,
+      children: [],
+      parent: node.id,
+      internal: {
+        content,
+        contentDigest,
+        type: newNode.type ? newNode.type : startCase(camelCase(`${node.name}GraphQL`)),
+      },
+    }
+
+    createNode(child)
+    createParentChildLink({ parent: node, child })
+  });
 
   return
 }
