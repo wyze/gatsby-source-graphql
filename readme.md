@@ -80,6 +80,10 @@ query GitHubViewerQuery {
 }
 ```
 
+### Sample Gatsby project integrated using @wyze/gatsby-source-graphql
+
+Alternatively, you can find a working sample project [gatsby-source-graphql-usage](https://github.com/gouravsood/gatsby-source-graphql-usage) where you can understand how to setup this plugin in your Gatsby Project.
+
 ## Change Log
 
 > [Full Change Log](changelog.md)
